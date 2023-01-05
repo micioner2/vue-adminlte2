@@ -28,8 +28,8 @@
             <ul class="sidebar-menu" data-widget="tree">
 
               <li>
-                <RouterLink :to="{name:'main'}">
-                    <i class="fa fa-utensils"></i><span>Punto de Venta</span>
+                <RouterLink :to="{name:'cliente'}">
+                    <i class="fa fa-utensils"></i><span>Cliente</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green">$</small>
                     </span>
@@ -37,16 +37,11 @@
               </li>
 
                 <li>
-                    <RouterLink :to="{name:'cliente'}">
-                        <i class="fa fa-list"></i> <span>LISTA DE INGRESOS</span>
+                    <RouterLink :to="{name:'proveedor'}">
+                        <i class="fa fa-list"></i> <span>Proveedor</span>
                     </RouterLink>
                 </li>
-
-
-
           </ul>
-
-        
         </section>
 
     </aside>

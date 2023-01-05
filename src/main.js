@@ -23,7 +23,11 @@ import "../src/assets/admin-lte/dist/css/skins/_all-skins.min.css"
 
 
 
+
+
 const app = createApp(App)
+axios.defaults.baseURL ='http://127.0.0.1:8000/'
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('tokenBearer')}`;
 app.config.globalProperties.$axios = axios;
 app.use(createPinia())
 app.use(router)
