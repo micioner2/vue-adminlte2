@@ -1,27 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../components/auth/Login.vue'
 import AuthLayout from "../components/auth/Index.vue";
-
 import Main from '../views/Index.vue'
-import Dashboard from '../components/Dashboard.vue'
-import ErrorPage from '../components/ErrorPage.vue'
 
-
-import Cliente from '../components/registros/Cliente.vue'
-import Proveedor from '../components/registros/Proveedor.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
 
     {
-      path: '/',
+      path: '/', 
       redirect: 'login',
       component: AuthLayout,
       children: [
         {
           path: '/login',
-          component: Login,
+          component: () => import('../components/auth/Login.vue'),
           name: 'login',
           meta: { hideForAuth: false }
         },
@@ -40,7 +34,7 @@ const router = createRouter({
 
         {
           path:'/dashboard',
-          component: () => Dashboard,
+          component: () => import('../components/Dashboard.vue'),
           meta:{
             title:'Dashboard'
           }
@@ -49,7 +43,7 @@ const router = createRouter({
         
       {
         path:'/:NotFound(.*)*',
-        component: ()  => ErrorPage,
+        component: ()  => import('../components/ErrorPage.vue'),
           meta:{
             title:'Error 404'
           }
@@ -57,30 +51,32 @@ const router = createRouter({
 
 
         {
-          path:'/cliente',
-          name:'cliente',
-          component: () => Cliente,
+          path:'/usuario',
+          name:'usuario',
+          component: () =>  import('../components/auth/Register.vue'),
         },
 
         
         {
           path:'/proveedor',
           name:'proveedor',
-          component: () => Proveedor,
+          component: () => import('../components/registros/Proveedor.vue'),
         },
 
 
       ]
     },
 
-   
-
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
+
+})
+
+
+router.beforeEach((to, from) => {
+  const isHide = to.matched.some((record) => record.meta.hideForAuth);
+  if (isHide) {
+    return { name: 'login' }
+  }
 })
 
 export default router

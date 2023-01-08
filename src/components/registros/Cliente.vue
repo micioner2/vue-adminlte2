@@ -13,48 +13,26 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-6">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Apellidos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item,index) in arrayDate" :key="index">
-                                <td>{{ item.date }}</td>
-                                <td>{{ item.time }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button class="btn btn-primary" @click="obtener">Token</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="box-footer">
-            <div class="form-group">
-                <button class="btn btn-primary" @click="alerta()"><i class="fa fa-save"></i>&nbsp;Registrar</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-    data(){
-        return {
-            arrayDate:[]
-        }
-    },
-
     methods:{
-        alerta(){
-            this.arrayDate = [];
-            this.$axios.get('http://time.jsontest.com').then((res)=>{
-                    this.arrayDate.push(res.data);
+        obtener(){
+            axios.post('api/userInfo').then((res)=>{
+                console.log(res.data);
             })
         }
     }
-} 
+}
+
 </script>

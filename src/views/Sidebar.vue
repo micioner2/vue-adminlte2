@@ -6,7 +6,7 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../assets/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="../../node_modules/admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -28,8 +28,8 @@
             <ul class="sidebar-menu" data-widget="tree">
 
               <li>
-                <RouterLink :to="{name:'cliente'}">
-                    <i class="fa fa-utensils"></i><span>Cliente</span>
+                <RouterLink :to="{name:'usuario'}">
+                    <i class="fa fa-user"></i><span>Usuario</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green">$</small>
                     </span>

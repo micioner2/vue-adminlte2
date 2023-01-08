@@ -10,10 +10,10 @@
     components: {"app-main": Main},
     beforeRouteEnter(to, from, next) {
         if (!localStorage.getItem('tokenBearer')) {
-             next({ path: '/login' });
+             return next('login');
         }
         next();
-    }
-  };
+    },
+  }
   </script>
   
