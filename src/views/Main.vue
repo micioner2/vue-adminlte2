@@ -37,6 +37,7 @@ export default {
             }
         })
         $(document).ready(function () {
+            $('.sidebar-menu').tree();
             $(document).trigger("resize");
         });
     }

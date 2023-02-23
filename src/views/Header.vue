@@ -37,7 +37,6 @@
                                 </div>
                                 </div>
                             </li>
-
                             <li class="user-footer">
                                 <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -47,9 +46,6 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
